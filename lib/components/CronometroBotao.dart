@@ -14,11 +14,13 @@ class CronometroBotao extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.black,
         padding: EdgeInsets.symmetric(
-          horizontal: 30,
+          horizontal: screenWidth < 416 ? 20 : 30,
           vertical: 20,
         ),
         textStyle: TextStyle(
@@ -26,18 +28,16 @@ class CronometroBotao extends StatelessWidget {
         ),
       ),
       onPressed: click,
-       child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: Icon(
-              icone,
-              size: 35,
-            ),
+      child: Row(children: [
+        Padding(
+          padding: const EdgeInsets.only(right: 10),
+          child: Icon(
+            icone,
+            size: 35,
           ),
-          Text(texto),
-        ]
-      ),
+        ),
+        Text(texto),
+      ]),
     );
   }
 }
